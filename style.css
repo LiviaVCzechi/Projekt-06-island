@@ -10,11 +10,17 @@
 
 body {
     margin: 0;
-    padding: 0;
     background-color: #f5f5f5;
     font-family: 'Merriweather', serif;
     font-size: 16px;
     line-height: 1.6;
+}
+h2 {
+    padding: 20px 0 30px 30px;
+}
+.obsah {
+    padding-top: 20px;
+    display: block;
 }
 .hlavicka{
     background: url(images/island-hlavicka.jpg);
@@ -24,6 +30,7 @@ body {
     width: 100%;
     height: 350px;
     margin:0;
+    text-align: center;
 }
 .titulek {
  padding-top: 30px;
@@ -36,90 +43,82 @@ body {
     border-bottom: rgb(228, 222, 218);
 }
 .autor {
-    padding-top: 30px;
+    padding-top: 10px;
     font-style: italic;
-    font-size: 20px;
+    font-size: 18px;
     opacity: 0.7;
 }
 
+.autor::before {
+    content: "";
+        display: block;
+        width: 110px;
+        height: 3px;
+        background-color: rgb(193, 193, 204);
+        margin: auto;    
+}
 
 .menu {
     text-align: center;
+    margin: 0;
     padding: 0;
+   
 }
 .menu li {
-    display: block;
-    border: 1px solid rgb(241, 233, 233);
+    display: block;    
+    border: 1px solid rgb(241, 233, 233); 
 }
 .menu a {
+    display: block;
     text-decoration: none;
     color: grey;
-
+    
+   
 }
-
 .body {
-    text-align: center;
     color: aliceblue;
-    padding: 50px 0px 10px 0px;
+    
+    
 }
-.popisek {
+.popisek
+.popisek2 {
     margin: 0px;
     padding-bottom: 30px;
-}
 
+}
 .popisek a{
     text-decoration: none;
     padding-top: 50px;
 }
 
-.paticka a {
-    text-decoration: none; 
+.paticka a{
+    text-decoration: none;
+    padding-top: 10px; 
+    color: grey;
 }
 a:visited {
     color: grey;
 }
+.paticka {
+    background-color: #f5f5f5;
+    padding: 10px;
+   
+}
 .foto img {
     width: 100%;
+    display: block;
+    
 }
 
-@media screen and (min-width: 300px) { 
-}
- @media screen and (min-width: 500px) {
-    .galerie {
-        display: flex;
-        flex-wrap: wrap;
-    }
 
-    .foto {
-        position: relative;
-        overflow: hidden;    
+@media screen and (min-width: 300px){
+    .perex,
+    .autor {
+        font-size: 12px;
     }
-    
-    .foto img {
-        width: 100%;
-        position: relative;
-        transition: transform 0.3s;
-    }
-    
- .popisek {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.4);
-        color: white;
-        width: 100%;
-        transition: transform 0.3s;
-    }
-    
-    .foto:hover .popisek {
-        transform: translateY(-100%);
-    }
-    
-    .foto:hover img {
-       transform: scale(1.2);
-    }
-    .paticka {
-        margin-top: 100px;
+    .popisek,
+    .popisek2 {
+       text-align: center;
     }
     h2::after {
         content: "";
@@ -128,9 +127,80 @@ a:visited {
         height: 5px;
         background-color: rgb(140, 140, 190);
         position: absolute;
-        top: 100%;
         left: 0px;
+        margin: 10px 0;
      }
+     .uvod,
+     .proc,
+     .videt,
+     .videt2 {
+        padding: 15px;
+     }
+
+  
+}
+ @media screen and (min-width: 500px) {
+    .perex,
+    .autor {
+        font-size: 15px;
+    }
+    .menu {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+        justify-content: center;   
+    }
+    .menu li {
+        display: inline;
+        
+    }
+    .menu a {
+        display: inline;
+
+    }
+    .galerie {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .galerie .foto {
+        flex: 1 1 calc(100%/2);
+    }
+    .foto {
+        position: relative;
+        overflow: hidden;    
+    }
+
+    .foto img {
+        width: 100%;
+        position: relative;
+        transition: transform 0.3s;
+        flex-wrap: wrap;
+    }
+     .popisek {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+         color: white;
+        width: 100%;
+        transition: transform 0.3s;
+    }
+    .popisek2 {
+        text-align: right;
+        position: absolute;
+        margin: -30px;
+    }
+    .popisek2 a {
+        text-decoration: none;
+        color: whitesmoke;
+        text-align: right;
+    }
+    .foto:hover .popisek {
+        transform: translateY(-130%);
+    }
+    
+    .foto:hover img {
+       transform: scale(1.2);
+    }
      }
 
       @media screen and (min-width: 1000px) {
@@ -144,14 +214,20 @@ a:visited {
         }
         .menu {
             float: left; 
-            margin: 30px 30px 0;   
+            display: block; 
+            margin: 20px; 
+            text-align: left; 
         }
         .menu li {
             display: block;
+            padding-left: 10px;
+            
         }
         .menu a {
-            padding: 10px 15px;
             display: block;
+            width: 200px;
+            height: 50px;
+            padding-top: 15px;
         }
         .uvod {
             display: block;
@@ -168,62 +244,32 @@ a:visited {
         h2 {
             position: relative;
         }
-        
         .galerie  {
             display: flex;
             flex-wrap: wrap;
             overflow: auto;
             width: 100%;
-     
             }
+        .galerie .foto {
+            flex: 1 1 calc(100%/3)
+        } 
+        .popisek,
+        .popisek2 {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            width: 100%;
+            transition: transform 0.3s;
+        }
         
-         }   
-            .foto {
-                position: relative;
-                overflow: hidden;
-                flex-grow: 1;
-              
-            }
-            
-            .foto img {
-                width: 100%;
-                position: relative;
-                transition: transform 0.3s;
-               
-            }
-              .popisek {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background-color: rgba(0, 0, 0, 0.4);
-                color: white;
-                width: 100%;
-                transition: transform 0.3s;
-            }
-            
-            .foto:hover .popisek {
-                transform: translateY(-100%);
-            }
-            
-            .foto:hover img {
-               transform: scale(1.2);
-            }
-            h2::after {
-                content: "";
-                display: block;
-                width: 115px;
-                height: 10px;
-                background-color: rgb(140, 140, 190);
-                position: absolute;
-                top: 100%;
-                left: 0px;
-            }
-            .paticka {
-                margin-left: 90px;
-            }
+        .foto:hover .popisek .popisek2 {
+            transform: translateY(-100%);
+        }
+    }     
+         
                 
-
-           
 
     /* HLAVICKA */
 
